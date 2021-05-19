@@ -1,24 +1,10 @@
 import 'package:flutter/material.dart';
 import './SignDetails.dart' as details;
+import './Constants.dart' as Constants;
 
 class Second extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var sunSigns = [
-      'aries',
-      'taurus',
-      'gemini',
-      'leo',
-      'cancer',
-      'virgo',
-      'libra',
-      'scorpio',
-      'sagittarius',
-      'capricorn',
-      'aquarius',
-      'pisces',
-    ];
-
     return new Container(
         color: Colors.deepPurple[800],
         child: new Center(
@@ -28,7 +14,7 @@ class Second extends StatelessWidget {
                 padding: const EdgeInsets.all(2.0),
                 mainAxisSpacing: 0,
                 crossAxisSpacing: 0,
-                children: sunSigns.map((sunsign) {
+                children: Constants.SUNSIGNS.map((sunsign) {
                   return TextButton(
                       child: Image(
                           image: new AssetImage('images/sunsigns/$sunsign.png'),
@@ -45,26 +31,4 @@ class Second extends StatelessWidget {
                       });
                 }).toList())));
   }
-}
-
-class DetailScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(),
-      body: Center(
-        child: TextButton(
-          child: Text('Pop!'),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-    );
-  }
-}
-
-class Sign {
-  final String sign;
-  Sign(this.sign);
 }

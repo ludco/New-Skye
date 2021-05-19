@@ -2,7 +2,8 @@
     package="com.example.newskye">
    <application
         android:label="newskye"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -37,5 +38,6 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+            <uses-permission android:name="android.permission.INTERNET" />
     </application>
 </manifest>
