@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.newskye">
+    package="com.app.skye">
    <application
-        android:label="newskye"
+        android:label="Skye"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
         <activity

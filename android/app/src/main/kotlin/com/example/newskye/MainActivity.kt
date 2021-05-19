@@ -1,4 +1,4 @@
-package com.example.newskye
+package com.app.skye
 
 import io.flutter.embedding.android.FlutterActivity
 
