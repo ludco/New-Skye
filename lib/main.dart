@@ -36,6 +36,7 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+        backgroundColor: Colors.deepPurple,
         appBar: AppBar(
           title: Text(
             _title,

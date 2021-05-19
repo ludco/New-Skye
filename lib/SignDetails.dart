@@ -50,18 +50,17 @@ class _SignDetailsState extends State<SignDetails> {
         body: Container(
           color: Colors.deepPurple[800],
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Container(
-                child: Image(
-                    image:
-                        new AssetImage('images/sunsigns/${widget.sunsign}.png'),
-                    width: 90,
-                    height: 90,
-                    fit: BoxFit.fill)),
             FutureBuilder<Astro>(
               future: futureAstro,
               builder: (context, snapshot) {
                 if (snapshot.hasData) {
                   return Column(children: [
+                    Image(
+                        image: new AssetImage(
+                            'images/sunsigns/${widget.sunsign}.png'),
+                        width: 90,
+                        height: 90,
+                        fit: BoxFit.fill),
                     Container(
                         padding: const EdgeInsets.all(40.0),
                         child: Text(snapshot.data!.date,
@@ -84,7 +83,7 @@ class _SignDetailsState extends State<SignDetails> {
                 }
 
                 // By default, show a loading spinner.
-                return CircularProgressIndicator();
+                return TransparentProgress();
               },
             ),
           ]),
@@ -105,6 +104,17 @@ class Astro {
     return Astro(
       horoscope: json['horoscope'],
       date: json['date'],
+    );
+  }
+}
+
+class TransparentProgress extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: const Center(
+        child: CircularProgressIndicator(),
+      ),
     );
   }
 }
