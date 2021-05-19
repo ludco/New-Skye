@@ -14,6 +14,7 @@ class SignDetails extends StatefulWidget {
   _SignDetailsState createState() => new _SignDetailsState();
 }
 
+// Fetch Horoscope datas
 Future<Astro> fetchAstro(sunsign) async {
   final response = await http.get(
       Uri.parse("http://horoscope-api.herokuapp.com/horoscope/today/$sunsign"));
@@ -24,7 +25,7 @@ Future<Astro> fetchAstro(sunsign) async {
   } else {
     // If the server did not return a 200 OK response,
     // then throw an exception.
-    throw Exception('Failed to load album');
+    throw Exception('Failed to load Horoscope');
   }
 }
 
@@ -73,10 +74,7 @@ class _SignDetailsState extends State<SignDetails> {
                         padding: const EdgeInsets.all(20.0),
                         child: Text(snapshot.data!.horoscope,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)))
+                            style: Theme.of(context).textTheme.bodyText2))
                   ]);
                 } else if (snapshot.hasError) {
                   return Text("${snapshot.error}");
@@ -91,6 +89,7 @@ class _SignDetailsState extends State<SignDetails> {
   }
 }
 
+// Astro class representing json data from Horoscop API
 class Astro {
   final String horoscope;
   final String date;
@@ -108,6 +107,7 @@ class Astro {
   }
 }
 
+// Circular Progress Indicator with transparent background
 class TransparentProgress extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import './SignDetails.dart' as details;
 import './Constants.dart' as Constants;
 
-class Second extends StatelessWidget {
+class Horoscope extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(

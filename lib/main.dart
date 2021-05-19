@@ -5,9 +5,13 @@ import './Horoscope.dart' as second;
 void main() {
   runApp(new MaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
-        backgroundColor: Colors.deepPurple,
-      ),
+          primarySwatch: Colors.deepPurple,
+          backgroundColor: Colors.deepPurple,
+          appBarTheme: AppBarTheme(centerTitle: true),
+          textTheme: TextTheme(
+            bodyText2: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          )),
       home: new MyTabs()));
 }
 
@@ -40,6 +44,7 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin {
         appBar: AppBar(
           title: Text(
             _title,
+            textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white),
           ),
           backgroundColor: Colors.deepPurple,
@@ -58,8 +63,8 @@ class MyTabsState extends State<MyTabs> with SingleTickerProviderStateMixin {
                       text: 'Horoscope')
                 ])),
         body: new TabBarView(controller: controller, children: <Widget>[
-          new first.First(),
-          new second.Second(),
+          new first.Orcale(),
+          new second.Horoscope(),
         ]));
   }
 
